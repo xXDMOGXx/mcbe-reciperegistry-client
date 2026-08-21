@@ -1,5 +1,8 @@
 # Publish @mcbe-reciperegistry/client via npm trusted publishing (OIDC).
-# No NPM_TOKEN. Configure the trusted publisher on npmjs.com to match this file.
+# No NPM_TOKEN. One-time setup (maintainer, interactive):
+#   npm trust github @mcbe-reciperegistry/client --file publish.yml \
+#     --repo xXDMOGXx/mcbe-reciperegistry-client --allow-publish -y
+# Then: bump package.json version, commit, tag vX.Y.Z, push the tag.
 name: Publish Package
 
 on:
@@ -11,6 +14,10 @@ on:
 permissions:
   id-token: write
   contents: read
+
+concurrency:
+  group: npm-publish
+  cancel-in-progress: false
 
 jobs:
   publish:
@@ -35,5 +42,18 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Skip if this version is already on npm
+        id: check
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          if npm view "@mcbe-reciperegistry/client@${VERSION}" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Version ${VERSION} already published — skipping."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Publish
+        if: steps.check.outputs.exists == 'false'
         run: npm publish --access public

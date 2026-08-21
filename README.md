@@ -8,13 +8,13 @@ Schema **2** client for the Recipe Registry host pack (Minecraft Bedrock Script 
 npm install @mcbe-reciperegistry/client mcbe-ipc
 ```
 
-`mcbe-ipc` is a declared dependency ([OmniacDev/MCBE-IPC](https://github.com/OmniacDev/MCBE-IPC)). Bundle your pack with a bundler (or use this monorepo’s esbuild path). Do not vendor a fork of Omniac’s sources as if they were this package.
+`mcbe-ipc` is a declared dependency ([OmniacDev/MCBE-IPC](https://github.com/OmniacDev/MCBE-IPC)). Bundle your pack with a bundler so both packages resolve in Bedrock. Do not vendor a fork of Omniac’s sources as if they were this package.
 
 Enable the **Recipe Registry** behavior pack on the world (host BP UUID in that pack’s README).
 
 ## Release drop-in (`client.js`)
 
-GitHub Releases for the host may attach `client.js` (from `pnpm --filter @mcbe-reciperegistry/client build:release` → `dist/release/client.js`).
+GitHub Releases for the host may attach `client.js` (from `npm run build:release` → `dist/release/client.js`).
 
 1. Copy Omniac’s built IPC module into your BP scripts folder as **`mcbe-ipc.js`** (their install docs / `dist/ipc.js` rename).
 2. Copy Release **`client.js`** next to it (same folder).
