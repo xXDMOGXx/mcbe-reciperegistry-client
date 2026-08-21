@@ -1,6 +1,6 @@
 {
   "name": "@mcbe-reciperegistry/client",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "MCBE Recipe Registry schema-2 client (MCBE-IPC). Install mcbe-ipc from OmniacDev; enable the Recipe Registry host pack.",
   "type": "module",
   "main": "./dist/index.js",

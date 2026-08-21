@@ -10,9 +10,9 @@ Schema **2** client for the Recipe Registry host pack (Minecraft Bedrock Script 
 npm install @mcbe-reciperegistry/client mcbe-ipc
 ```
 
-You also need the **Recipe Registry** host behavior pack on the world. Details: [Installation](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/wiki/Installation) · [Dependencies](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/wiki/Dependencies)
+You also need the **Recipe Registry** host behavior pack on the world ([CurseForge](https://www.curseforge.com/minecraft-bedrock/addons/recipe-registry)). Details: [Installation](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/wiki/Installation) · [Dependencies](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/wiki/Dependencies)
 
-Drop-in `recipe-registry-client.js` (no bundler): [Releases](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/releases) — place Omniac’s module beside it as `mcbe-ipc.js`.
+`mcbe-ipc` is from [OmniacDev/MCBE-IPC](https://github.com/OmniacDev/MCBE-IPC). Drop-in `recipe-registry-client.js` (no bundler): [Releases](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/releases) — place Omniac’s module beside it as `mcbe-ipc.js`.
 
 ## Quick example
 
