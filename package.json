@@ -1,0 +1,63 @@
+{
+  "name": "@mcbe-reciperegistry/client",
+  "version": "0.1.0",
+  "description": "MCBE Recipe Registry schema-2 client (MCBE-IPC). Install mcbe-ipc from OmniacDev; enable the Recipe Registry host pack.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./bedrock": {
+      "types": "./dist/bedrock.d.ts",
+      "import": "./dist/bedrock.js"
+    },
+    "./mcbe-ipc": {
+      "types": "./dist/mcbeIpc.d.ts",
+      "import": "./dist/mcbeIpc.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:release": "node scripts/build-release.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "mcbe-ipc": "^3.4.2"
+  },
+  "peerDependencies": {
+    "@minecraft/server": "^1.18.0 || ^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@minecraft/server": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@minecraft/server": "2.8.0",
+    "esbuild": "^0.23.0",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xXDMOGXx/mcbe-reciperegistry-client.git"
+  },
+  "homepage": "https://github.com/xXDMOGXx/mcbe-reciperegistry-client#readme",
+  "bugs": {
+    "url": "https://github.com/xXDMOGXx/mcbe-reciperegistry-client/issues"
+  }
+}
