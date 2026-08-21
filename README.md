@@ -12,12 +12,13 @@ npm install @mcbe-reciperegistry/client mcbe-ipc
 
 You also need the **Recipe Registry** host behavior pack on the world. Details: [Installation](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/wiki/Installation) · [Dependencies](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/wiki/Dependencies)
 
-Drop-in `client.js` (no bundler): [Releases](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/releases) — place Omniac’s module beside it as `mcbe-ipc.js`.
+Drop-in `recipe-registry-client.js` (no bundler): [Releases](https://github.com/xXDMOGXx/mcbe-reciperegistry-client/releases) — place Omniac’s module beside it as `mcbe-ipc.js`.
 
 ## Quick example
 
 ```ts
 import { createBedrockClient } from "@mcbe-reciperegistry/client/bedrock";
+// or: import { createBedrockClient } from "./recipe-registry-client.js";
 
 const registry = createBedrockClient(5);
 if (!(await registry.waitReady())) {

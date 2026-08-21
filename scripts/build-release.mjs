@@ -1,5 +1,5 @@
 /**
- * Builds a single ESM `client.js` for GitHub Release drop-in packs.
+ * Builds a single ESM `recipe-registry-client.js` for GitHub Release drop-in packs.
  * Does not embed Omniac `mcbe-ipc` — authors place that file beside this one as `./mcbe-ipc.js`.
  */
 import * as esbuild from "esbuild";
@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const pkgRoot = path.join(root, "..");
-const outfile = path.join(pkgRoot, "dist", "release", "client.js");
+const outfile = path.join(pkgRoot, "dist", "release", "recipe-registry-client.js");
 
 await esbuild.build({
   absWorkingDir: pkgRoot,
