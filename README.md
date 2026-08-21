@@ -43,3 +43,18 @@ if (!ok) {
 Data ops use MCBE-IPC. Discovery also listens for JSON `reciperegistry:ready` / `hello` (`schema: 2`).
 
 Schema-1 JSON RPC is deprecated on the host; update callers to this package.
+
+## Publishing (trusted / OIDC)
+
+Releases publish from GitHub Actions (`.github/workflows/publish.yml`) — no long-lived npm token.
+
+1. On [npmjs.com](https://www.npmjs.com/) → package **@mcbe-reciperegistry/client** → **Settings** → **Trusted Publisher** → GitHub Actions:
+   - Organization or user: `xXDMOGXx`
+   - Repository: `mcbe-reciperegistry-client`
+   - Workflow filename: `publish.yml`
+   - Allowed action: `npm publish`
+2. If the package does not exist yet, create the trust once from an interactive login:
+   `npm login --auth-type=web` then  
+   `npm trust github @mcbe-reciperegistry/client --file publish.yml --repo xXDMOGXx/mcbe-reciperegistry-client --allow-publish -y`  
+   (approve the desktop/phone passkey when prompted).
+3. Tag and push: `git tag v0.1.0 && git push origin v0.1.0` (or **Actions → Publish Package → Run workflow**).
